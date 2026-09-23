@@ -1,0 +1,3149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ARVEX APPARELS| CUSTOM CLOTHING AND APPAREL MANUFACTURER</title>
+
+<meta name="description" content="ARVEX APPARELS — CUSTOM STREETWEAR AND APPAREL MANUFACTURER.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #070707;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+body.cart-open {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+    --black: #070707;
+    --black-2: #0c0c0c;
+    --dark: #111;
+    --dark-2: #171717;
+
+    --white: #fff;
+    --gray: #999;
+    --gray-2: #666;
+
+    --red: #e10600;
+    --red-dark: #a90000;
+
+    --border: rgba(255,255,255,.09);
+
+    --green: #25d366;
+}
+
+
+/* =====================================================
+   PRELOADER
+===================================================== */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background: #070707;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .6s ease;
+}
+
+.loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-logo {
+    font-family: "Oswald", sans-serif;
+    font-size: 55px;
+    font-weight: 700;
+    letter-spacing: 5px;
+
+    animation: loaderPulse 1.2s infinite alternate;
+}
+
+.loader-logo span {
+    color: var(--red);
+}
+
+@keyframes loaderPulse {
+    from {
+        opacity: .3;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 5000;
+
+    transition: .35s ease;
+}
+
+header.scrolled {
+    background: rgba(5,5,5,.92);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    max-width: 1450px;
+    height: 82px;
+
+    margin: auto;
+    padding: 0 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.nav-links {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: #ccc;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    transition: .3s;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--red);
+
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.cart-button {
+    position: relative;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+
+    color: #fff;
+    font-size: 20px;
+
+    transition: .3s;
+}
+
+.cart-button:hover {
+    color: var(--red);
+    transform: translateY(-2px);
+}
+
+.cart-count {
+    position: absolute;
+
+    top: 0;
+    right: -3px;
+
+    width: 17px;
+    height: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    color: white;
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.menu-button {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    color: white;
+    font-size: 25px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 75% 50%,
+            rgba(225,6,0,.20),
+            transparent 30%
+        ),
+        linear-gradient(
+            115deg,
+            #030303 25%,
+            #111 100%
+        );
+}
+
+.hero::before {
+    content: "";
+
+    position: center;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.95),
+            transparent 75%
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 120px,
+            rgba(255,255,255,.025) 110px
+        );
+}
+
+.hero::after {
+    content: "ARVEX";
+
+    position: center;
+
+    right: -80px;
+    bottom: -50px;
+
+    font-family: "Oswald", sans-serif;
+
+    font-size: 250px;
+    font-weight: 700;
+
+    color: rgba(255,255,255,.018);
+
+    letter-spacing: -10px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1450px;
+
+    margin: auto;
+
+    padding: 150px 35px 90px;
+}
+
+.hero-label {
+    color: var(--red);
+
+    font-size: 12px;
+    font-weight: 300;
+
+    text-transform: uppercase;
+    letter-spacing: 4px;
+
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    max-width: 300px;
+
+    font-family: "Oswald", sans-serif;
+
+    font-size: 90px;
+
+    line-height: .82;
+
+    text-transform: uppercase;
+
+    letter-spacing: -5px;
+}
+
+.hero h1 .outline {
+    color: transparent;
+
+    -webkit-text-stroke: 1px #fff;
+}
+
+.hero-description {
+    max-width: 540px;
+
+    margin-top: 35px;
+
+    color: #999;
+
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+
+    margin-top: 38px;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 53px;
+
+    padding: 0 28px;
+
+    border: 1px solid var(--border);
+
+    font-size: 11px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    transition: .3s;
+}
+
+.btn-red {
+    background: var(--red);
+    border-color: var(--red);
+}
+
+.btn-red:hover {
+    background: white;
+    color: #000;
+    border-color: white;
+
+    transform: translateY(-3px);
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #000;
+
+    transform: translateY(-3px);
+}
+
+.hero-number {
+    position: absolute;
+
+    right: 5%;
+    bottom: 45px;
+
+    font-family: "Oswald", sans-serif;
+
+    font-size: 140px;
+    font-weight: 700;
+
+    color: rgba(255,255,255,.025);
+}
+
+
+/* =====================================================
+   MARQUEE
+===================================================== */
+
+.marquee {
+    overflow: hidden;
+
+    background: var(--red);
+
+    padding: 13px 0;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+
+    animation: marquee 24s linear infinite;
+}
+
+.marquee-item {
+    font-family: "Oswald", sans-serif;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    padding: 0 35px;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+section {
+    padding: 115px 35px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.section-heading {
+    margin-bottom: 55px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 40px;
+}
+
+.section-label {
+    color: var(--red);
+
+    font-size: 11px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    margin-bottom: 13px;
+}
+
+.section-title {
+    font-family: "Oswald", sans-serif;
+
+    font-size: clamp(50px, 7vw, 82px);
+
+    text-transform: uppercase;
+
+    line-height: .9;
+}
+
+.section-description {
+    max-width: 450px;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   SHOP
+===================================================== */
+
+.shop {
+    background: #0b0b0b;
+}
+
+.products {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.product-card {
+    position: relative;
+
+    background: #121212;
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+
+    transition: .4s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(225,6,0,.45);
+}
+
+.product-image {
+    height: 450px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #2a2a2a,
+            #101010 70%
+        );
+}
+
+.product-image::after {
+    content: "ARVEX APPARELS";
+
+    position: absolute;
+
+    font-family: "Oswald", sans-serif;
+
+    font-size: 190px;
+    font-weight: 700;
+
+    color: rgba(255,255,255,.025);
+
+    z-index: 0;
+}
+
+/*
+   IMPORTANT:
+   contain keeps your gloves completely
+   inside the product box.
+*/
+
+.product-image img {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    transition: transform .45s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-tag {
+    position: absolute;
+
+    top: 18px;
+    left: 18px;
+
+    z-index: 5;
+
+    padding: 7px 11px;
+
+    background: var(--red);
+
+    font-size: 9px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.product-info {
+    padding: 25px;
+}
+
+.product-category {
+    color: #777;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.product-name {
+    margin: 7px 0 18px;
+
+    font-family: "Oswald", sans-serif;
+
+    font-size: 28px;
+
+    text-transform: uppercase;
+}
+
+.product-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.add-cart {
+    width: 44px;
+    height: 44px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid #333;
+
+    font-size: 23px;
+
+    transition: .3s;
+}
+
+.add-cart:hover {
+    background: var(--red);
+    border-color: var(--red);
+}
+
+
+/* =====================================================
+   STORY
+===================================================== */
+
+.story {
+    background: #070707;
+}
+
+.story-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+.story-image {
+    min-height: 580px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #161616,
+            #090909
+        );
+}
+
+.story-image::before {
+    content: "R";
+
+    position: absolute;
+
+    left: 15px;
+    top: -35px;
+
+    font-family: "Oswald", sans-serif;
+
+    font-size: 600px;
+    font-weight: 700;
+
+    line-height: 1;
+
+    color: rgba(255,255,255,.025);
+}
+
+.story-image::after {
+    content: "";
+
+    position: absolute;
+
+    right: -20%;
+    bottom: -30%;
+
+    width: 80%;
+    height: 80%;
+
+    background: var(--red);
+
+    filter: blur(100px);
+
+    opacity: .3;
+}
+
+.story-badge {
+    position: absolute;
+
+    right: 30px;
+    bottom: 30px;
+
+    z-index: 2;
+
+    font-family: "Oswald", sans-serif;
+
+    font-size: 90px;
+    font-weight: 700;
+}
+
+.story-content h2 {
+    margin-bottom: 28px;
+
+    font-family: "Oswald", sans-serif;
+
+    font-size: clamp(55px, 6vw, 75px);
+
+    text-transform: uppercase;
+
+    line-height: .9;
+}
+
+.story-content h2 span {
+    color: var(--red);
+}
+
+.story-content p {
+    max-width: 570px;
+
+    color: #888;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+    margin-bottom: 18px;
+}
+
+.story-content .btn {
+    margin-top: 15px;
+}
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.features {
+    background: #101010;
+}
+
+.feature-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    border: 1px solid var(--border);
+}
+
+.feature {
+    padding: 42px 30px;
+
+    border-right: 1px solid var(--border);
+
+    transition: .3s;
+}
+
+.feature:last-child {
+    border-right: none;
+}
+
+.feature:hover {
+    background: #151515;
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    border: 1px solid #333;
+
+    color: var(--red);
+
+    font-size: 20px;
+}
+
+.feature h3 {
+    margin-bottom: 13px;
+
+    font-family: "Oswald", sans-serif;
+
+    font-size: 24px;
+
+    text-transform: uppercase;
+}
+
+.feature p {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta {
+    min-height: 560px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.95),
+            rgba(0,0,0,.55)
+        ),
+        radial-gradient(
+            circle at 80% 50%,
+            #5b0000,
+            #080808 55%
+        );
+}
+
+.cta h2 {
+    font-family: "Oswald", sans-serif;
+
+    font-size: clamp(70px, 10vw, 135px);
+
+    line-height: .82;
+
+    text-transform: uppercase;
+}
+
+.cta h2 span {
+    color: var(--red);
+}
+
+.cta p {
+    max-width: 500px;
+
+    margin: 28px 0 30px;
+
+    color: #999;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact {
+    background: #0d0d0d;
+}
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+}
+
+.contact-info h2 {
+    font-family: "Oswald", sans-serif;
+
+    font-size: 65px;
+
+    text-transform: uppercase;
+
+    line-height: .9;
+
+    margin-bottom: 25px;
+}
+
+.contact-info h2 span {
+    color: var(--red);
+}
+
+.contact-info > p {
+    max-width: 500px;
+
+    color: #777;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+.contact-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+.contact-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #171717;
+
+    border: 1px solid var(--border);
+
+    color: var(--red);
+}
+
+.contact-item small {
+    display: block;
+
+    color: #555;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    margin-bottom: 4px;
+}
+
+.contact-item strong {
+    font-size: 14px;
+}
+
+.newsletter-box {
+    padding: 45px;
+
+    background: #141414;
+
+    border: 1px solid var(--border);
+}
+
+.newsletter-box h3 {
+    font-family: "Oswald", sans-serif;
+
+    font-size: 35px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
+}
+
+.newsletter-box p {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+.newsletter-form {
+    display: flex;
+
+    border: 1px solid #333;
+}
+
+.newsletter-form input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 17px;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: white;
+}
+
+.newsletter-form input::placeholder {
+    color: #555;
+}
+
+.newsletter-form button {
+    padding: 0 25px;
+
+    border: none;
+
+    background: var(--red);
+
+    color: white;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding: 80px 35px 25px;
+
+    background: #050505;
+
+    border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+    max-width: 1400px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 50px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+.footer-logo span {
+    color: var(--red);
+    font-size: 36px;
+
+}
+
+.footer-brand p {
+    max-width: 350px;
+
+    margin-top: 20px;
+
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.footer-col h4 {
+    margin-bottom: 22px;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.footer-col a {
+    display: block;
+
+    margin-bottom: 13px;
+
+    color: #666;
+
+    font-size: 13px;
+
+    transition: .3s;
+}
+
+.footer-col a:hover {
+    color: white;
+
+    transform: translateX(4px);
+}
+
+.footer-bottom {
+    max-width: 1400px;
+
+    margin: 70px auto 0;
+
+    padding-top: 22px;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    color: #555;
+
+    font-size: 10px;
+
+    letter-spacing: .5px;
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp {
+    position: fixed;
+
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 4000;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px 19px;
+
+    background: var(--green);
+
+    color: white;
+
+    border-radius: 50px;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.5);
+
+    transition: .3s;
+}
+
+.whatsapp:hover {
+    transform: translateY(-4px);
+
+    background: #39e77f;
+
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid rgb(29, 224, 94);
+
+    border-radius: 50%;
+
+    font-size: 15px;
+    .img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    }
+
+
+/* =====================================================
+   CART OVERLAY
+===================================================== */
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9000;
+
+    background: rgba(0,0,0,.75);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s;
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: min(440px, 100%);
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px;
+
+    background: #111;
+
+    border-left: 1px solid var(--border);
+
+    transform: translateX(100%);
+
+    transition: .4s;
+}
+
+.cart-overlay.active .cart {
+    transform: translateX(0);
+}
+
+.cart-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-header h2 {
+    font-family: "Oswald", sans-serif;
+
+    font-size: 30px;
+
+    text-transform: uppercase;
+}
+
+.close-cart {
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 28px;
+}
+
+.cart-items {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 20px 0;
+}
+
+.empty-cart {
+    padding-top: 100px;
+
+    color: #555;
+
+    text-align: center;
+}
+
+.cart-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-item h4 {
+    font-size: 14px;
+}
+
+.cart-item p {
+    margin-top: 5px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+.remove-item {
+    border: none;
+
+    background: transparent;
+
+    color: #777;
+
+    font-size: 11px;
+}
+
+.remove-item:hover {
+    color: var(--red);
+}
+
+.cart-total {
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+.total-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+
+    font-weight: 800;
+}
+
+.checkout {
+    width: 100%;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 30px;
+
+    z-index: 10000;
+
+    transform: translate(-50%, 100px);
+
+    padding: 14px 22px;
+
+    background: white;
+
+    color: black;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    opacity: 0;
+
+    transition: .35s;
+}
+
+.toast.show {
+    opacity: 1;
+
+    transform: translate(-50%, 0);
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width: 1000px) {
+
+    .nav-links {
+        position: fixed;
+
+        top: 82px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 30px;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        background: #090909;
+
+        border-bottom: 1px solid var(--border);
+
+        transform: translateY(-150%);
+
+        transition: .4s;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .story-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature:nth-child(2) {
+        border-right: none;
+    }
+
+    .feature:nth-child(1),
+    .feature:nth-child(2) {
+        border-bottom: 1px solid var(--border);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 600px) {
+
+    .navbar {
+        height: 72px;
+
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        top: 72px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    section {
+        padding: 75px 20px;
+    }
+
+    .hero-content {
+        padding: 130px 20px 75px;
+    }
+
+    .hero h1 {
+        font-size: 72px;
+
+        letter-spacing: -3px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .hero-buttons .btn {
+        width: 240px;
+    }
+
+    .hero-number {
+        font-size: 90px;
+    }
+
+    .section-heading {
+        display: block;
+
+        margin-bottom: 40px;
+    }
+
+    .section-description {
+        margin-top: 20px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 380px;
+    }
+
+    .story-image {
+        min-height: 400px;
+    }
+
+    .story-image::before {
+        font-size: 400px;
+    }
+
+    .story-content h2 {
+        font-size: 55px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature {
+        border-right: none !important;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .feature:last-child {
+        border-bottom: none;
+    }
+
+    .contact-info h2 {
+        font-size: 53px;
+    }
+
+    .newsletter-box {
+        padding: 28px 20px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-form input {
+        padding: 17px;
+    }
+
+    .newsletter-form button {
+        min-height: 50px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .whatsapp {
+        right: 18px;
+        bottom: 18px;
+
+        width: 55px;
+        height: 55px;
+
+        padding: 0;
+
+        justify-content: center;
+    }
+
+    .whatsapp-text {
+        display: none;
+    }
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media(prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: .01ms !important;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LOADER
+===================================================== -->
+
+<div class="loader" id="loader">
+
+    <div class="loader-logo">
+        ARVEX APPAREL<span>.</span>
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header id="header">
+
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+            <img src="images/arvex logo.png" alt="">
+        </a>
+
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#shop">Services</a>
+            </li>
+
+            <li>
+                <a href="#story">Our Story</a>
+            </li>
+
+            <li>
+                <a href="#technology">Capabilities</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-actions">
+
+            <button
+                class="cart-button"
+                onclick="openCart()"
+                aria-label="Open shopping cart">
+
+                🛒
+
+                <span
+                    class="cart-count"
+                    id="cartCount">
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Open menu">
+
+                ☰
+
+            </button>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            CUSTOM APPAREL MANUFACTURING
+        </div>
+
+
+        <h1>
+
+            Building<br>
+
+            <span class="outline">
+                Your Brand
+            </span><br>
+
+            Worldwide.
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            ARVEX Apparel is a professional streetwear and activewear manufacturer delivering custom apparel solutions for brands worldwide.
+
+From pattern making & cutting to stitching and finishing, we manage the core manufacturing process in-house, allowing us to maintain greater control over quality, fit, and consistency.
+
+We manufacture according to your requirements, offering custom designs, fabrics, colors, sizing, labels, and branding to bring your vision to life.
+
+From your concept to the finished garment — ARVEX Apparel manufactures it your way.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#shop"
+                class="btn btn-red">
+
+                Explore Our Work
+
+            </a>
+
+
+            <a
+                href="#story"
+                class="btn btn-outline">
+
+                Discover ARVEX
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-number">
+        01
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MARQUEE
+===================================================== -->
+
+<div class="marquee">
+
+    <div class="marquee-track">
+
+        <div class="marquee-item">
+           CUSTOM APPAREL MANUFACTURING
+        </div>
+
+        <div class="marquee-item">
+            STREETWEAR & ACTIVESWEAR
+        </div>
+
+        <div class="marquee-item">
+            PRIVATE LABEL
+        </div>
+
+        <div class="marquee-item">
+            LOW MOQ 
+        </div>
+
+        <div class="marquee-item">
+           FAST TURNAROUND
+        </div>
+
+        <div class="marquee-item">
+            YOUR VISION
+        </div>
+
+        <div class="marquee-item">
+            OUR CRAFT
+        </div>
+
+        <div class="marquee-item">
+            MANUFACTURED BY ARVEX APPAREL
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SHOP
+===================================================== -->
+
+<section class="shop" id="shop">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div>
+
+                <div class="section-label">
+                    OUR SERVICES
+                </div>
+
+                <h2 class="section-title">
+                    YOUR BRAND<br>
+                   OUR CRAFT.
+                </h2>
+
+            </div>
+
+
+            <p class="section-description">
+
+                Gear designed around the demands of real
+                riders. Protection where it matters,
+                comfort where it counts, and a design that
+                looks as aggressive as your ride.
+
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <!-- PRODUCT 1 -->
+
+            <article class="product-card reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/Gloves.png"
+                        alt="RYDOR Custom Apparel"
+                        loading="lazy">
+
+                    <div class="product-tag">
+                        BEST SELLER
+                    </div>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Custom Apparel
+                    </div>
+
+                    <h3 class="product-name">
+                        Custom Streetwear
+                    </h3>
+
+
+                    <div class="product-bottom">
+
+                        <span class="price">
+                            Custom
+                        </span>
+
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Custom Streetwear',49.99)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+
+            <article class="product-card reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/Control Leather Gloves.png"
+                        alt="RYDOR Carbon Custom Apparel"
+                        loading="lazy">
+
+                    <div class="product-tag">
+                        NEW
+                    </div>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Custom Apparel
+                    </div>
+
+                    <h3 class="product-name">
+                        Custom Activewear
+                    </h3>
+
+
+                    <div class="product-bottom">
+
+                        <span class="price">
+                            Custom
+                        </span>
+
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Custom Activewear',59.99)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+
+            <article class="product-card reveal">
+
+                <div class="product-image">
+
+                    <img
+                        src="images/gloves.png.png"
+                        alt="RYDOR Pro-X Custom Apparel"
+                        loading="lazy">
+
+                    <div class="product-tag">
+                        PREMIUM
+                    </div>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Custom Apparel
+                    </div>
+
+                    <h3 class="product-name">
+                        Private Label Apparel
+                    </h3>
+
+
+                    <div class="product-bottom">
+
+                        <span class="price">
+                            Custom
+                        </span>
+
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Private Label Apparel',74.99)">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STORY
+===================================================== -->
+
+<section class="story" id="story">
+
+    <div class="container">
+
+        <div class="story-grid">
+
+
+            <div class="story-image reveal">
+
+                <div class="story-badge">
+                    ARVEX
+                </div>
+
+            </div>
+
+
+            <div class="story-content reveal">
+
+                <div class="section-label">
+                    OUR APPROACH
+                </div>
+
+
+                <h2>
+
+                    MADE FOR<br>
+
+                    <span>
+                        YOUR BRAND.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    ARVEX Apparel is built around a simple principle: quality manufacturing should bring your brand’s vision to life.
+
+                </p>
+
+
+                <p>
+
+                  From pattern development and cutting to stitching and finishing, we focus on precision, consistency, and attention to detail at every stage of production.
+                </p>
+
+
+                <p>
+
+                    
+
+                    Whether you are developing streetwear, activewear, or a complete collection, we manufacture according to your specifications and requirements.
+
+                </p>
+
+
+                <a
+                    href="#technology"
+                    class="btn btn-outline">
+
+                    EXPLORE OUR CAPABILITIES
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TECHNOLOGY
+===================================================== -->
+
+<section
+    class="features"
+    id="technology">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div>
+
+                <div class="section-label">
+                   WHAT WE DO!
+                </div>
+
+                <h2 class="section-title">
+                    Built<br>
+                    to your vision.
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature reveal">
+
+                <div class="feature-icon">
+                    ◈
+                </div>
+
+                <h3>
+                   CUSTOM DEVELOPMENT
+
+                </h3>
+
+                <p>
+
+                    Turning your designs and specifications into production-ready garments.
+
+                </p>
+
+            </div>
+
+
+            <div class="feature reveal">
+
+                <div class="feature-icon">
+                    ◎
+                </div>
+
+                <h3>
+                    PRINT & DECORATION
+                </h3>
+
+                <p>
+
+                    DTG, DTF, Screen print, Puff print, ink print, sublimation, Direct embroidery, Chenille embroidery, applique embroidery, rhinestones, and more.
+
+                </p>
+
+            </div>
+
+
+            <div class="feature reveal">
+
+                <div class="feature-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    PRECISION PRODUCTION
+
+                </h3>
+
+                <p>
+
+                   Pattern making, cutting, stitching, and finishing with attention to detail.
+                </p>
+
+            </div>
+
+
+            <div class="feature reveal">
+
+                <div class="feature-icon">
+                    ◆
+                </div>
+
+                <h3>
+                    CUSTOM LABELS & BRANDING
+                </h3>
+
+                <p>
+
+                    Custom labels, hangtags, polymailers, woven labels, paper tags and branding, colors, sizing, materials, and garment specifications.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="container reveal">
+
+        <div class="section-label">
+            YOUR NEXT COLLECTION
+        </div>
+
+
+        <h2>
+
+            Build<br>
+
+            Your <span>
+                Brand.
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Your vision deserves precision. Turn your concepts into finished garments with ARVEX Apparel.
+
+        </p>
+
+
+        <a
+            href="#shop"
+            class="btn btn-red">
+
+            Start Your Project
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+    class="contact"
+    id="contact">
+
+    <div class="container">
+
+        <div class="contact-grid">
+
+
+            <div class="contact-info reveal">
+
+                <div class="section-label">
+                    GET IN TOUCH
+                </div>
+
+
+                <h2>
+
+                    Let's<br>
+
+                    <span>
+                        Create.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    Have a design, specification, or production requirement? Get in touch with the ARVEX Apparel team.
+
+                </p>
+
+
+                <!-- EMAIL -->
+
+                <a
+                    href="mailto:arvexclothing.co@gmail.com"
+                    class="contact-item">
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <div>
+
+                        <small>
+                            Email
+                        </small>
+
+                        <strong>
+                            arvexclothing.co@gmail.com
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+                <!-- WHATSAPP -->
+
+                <a
+                    href="https://wa.me/923256145964?text=Hello%20ARVEX%20APPAREL%2C%20I%20have%20a%20question%20about%20your%20products."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-item">
+
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+
+                    <div>
+
+                        <small>
+                            WhatsApp
+                        </small>
+
+                        <strong>
+                            +92 325 6145964
+                        </strong>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- NEWSLETTER -->
+
+            <div class="newsletter-box reveal">
+
+                <div class="section-label">
+                    WORK WITH ARVEX
+                </div>
+
+
+                <h3>
+                    LET'S BUILD TOGETHER.
+                </h3>
+
+
+                <p>
+
+                    Tell us what you want to manufacture and our team will help turn your requirements into production-ready apparel.
+
+                </p>
+
+
+                <form
+                    class="newsletter-form"
+                    id="newsletterForm">
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required>
+
+                    <button type="submit">
+                        Subscribe
+                    </button>
+
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+               <img src="images/arvex logo.png" alt="ARVEX APPAREL Logo">
+                
+
+            </div>
+
+
+            <p>
+
+                ARVEX Apparel specializes in custom streetwear and activewear manufacturing, delivering quality garments tailored to your requirements.
+
+            </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h4>
+                Services
+            </h4>
+
+            <a href="#shop">
+                Custom Apparel
+            </a>
+
+            <a href="#shop">
+                Streetwear
+            </a>
+
+            <a href="#shop">
+                Activewear
+            </a>
+
+            <a href="#shop">
+                Private Label
+            </a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h4>
+                Company
+            </h4>
+
+            <a href="#story">
+                Our Story
+            </a>
+
+            <a href="#technology">
+                Capabilities
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+            <h4>
+                Contact
+            </h4>
+
+            <a href="mailto:arvexclothing.co@gmail.com">
+                arvexclothing.co@gmail.com
+            </a>
+
+            <a
+                href="https://wa.me/923256145964"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                WhatsApp
+
+            </a>
+
+            <a href="#shop">
+                Services Gear
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 ARVEX APPAREL. ALL RIGHTS RESERVED.
+        </span>
+
+
+        <span>
+            BUILT FOR YOUR BRAND.
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     WHATSAPP FLOATING BUTTON
+===================================================== -->
+
+<a
+    href="https://wa.me/923256145964?text=Hello%20ARVEX%20APPAREL%2C%20I%20am%20interested%20in%20your%20products."
+    class="whatsapp"
+    target="_blank"
+    aria-label="Chat with ARVEX APPAREL on WhatsApp">
+
+    <span class="whatsapp-icon">
+        <i class="fab fa-whatsapp"></i>
+    </span>
+
+    <span class="whatsapp-text">
+        Chat on WhatsApp
+    </span>
+
+</a>
+
+
+<!-- =====================================================
+     CART
+===================================================== -->
+
+<div
+    class="cart-overlay"
+    id="cartOverlay">
+
+
+    <div class="cart">
+
+
+        <div class="cart-header">
+
+            <h2>
+                Your Cart
+            </h2>
+
+
+            <button
+                class="close-cart"
+                onclick="closeCart()">
+
+                ×
+
+            </button>
+mk
+        </div>
+
+
+        <div
+            class="cart-items"
+            id="cartItems">
+
+            <div class="empty-cart">
+                Your project cart is empty.
+            </div>
+
+        </div>
+
+
+        <div class="cart-total">
+
+            <div class="total-row">
+
+                <span>
+                    Total
+                </span>
+
+                <span id="cartTotal">
+                    $0.00
+                </span>
+
+            </div>
+
+
+            <button
+                class="btn btn-red checkout"
+                onclick="checkout()">
+
+                Checkout
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="toast"
+    id="toast">
+
+    Added to project.
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   LOADER
+===================================================== */
+
+window.addEventListener("load", function() {
+
+    setTimeout(function() {
+
+        document
+            .getElementById("loader")
+            .classList.add("hide");
+
+    }, 700);
+
+});
+
+
+/* =====================================================
+   HEADER SCROLL
+===================================================== */
+
+const header =
+    document.getElementById("header");
+
+window.addEventListener("scroll", function() {
+
+    if (window.scrollY > 50) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuButton.addEventListener("click", function() {
+
+    navLinks.classList.toggle("active");
+
+});
+
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+            navLinks.classList.remove("active");
+
+        });
+
+    });
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+let cart = [];
+
+
+function addToCart(name, price) {
+
+    cart.push({
+        name: name,
+        price: price
+    });
+
+    updateCart();
+
+    openCart();
+
+    showToast(name + " added to cart.");
+
+}
+
+
+function removeFromCart(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+
+}
+
+
+function updateCart() {
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+    const cartTotal =
+        document.getElementById("cartTotal");
+
+
+    cartCount.textContent =
+        cart.length;
+
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+            <div class="empty-cart">
+                Your project cart is empty.
+            </div>
+
+        `;
+
+        cartTotal.textContent =
+            "$0.00";
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+
+    cartItems.innerHTML =
+        cart.map(function(item, index) {
+
+            total += item.price;
+
+
+            return `
+
+                <div class="cart-item">
+
+                    <div>
+
+                        <h4>
+                            ${item.name}
+                        </h4>
+
+                        <p>
+                            $${item.price.toFixed(2)}
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="remove-item"
+                        onclick="removeFromCart(${index})">
+
+                        Remove
+
+                    </button>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+
+    cartTotal.textContent =
+        "$" + total.toFixed(2);
+
+}
+
+
+function openCart() {
+
+    document
+        .getElementById("cartOverlay")
+        .classList.add("active");
+
+    document.body.classList.add("cart-open");
+
+}
+
+
+function closeCart() {
+
+    document
+        .getElementById("cartOverlay")
+        .classList.remove("active");
+
+    document.body.classList.remove("cart-open");
+
+}
+
+
+document
+    .getElementById("cartOverlay")
+    .addEventListener("click", function(event) {
+
+        if (event.target === this) {
+
+            closeCart();
+
+        }
+
+    });
+
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+
+function checkout() {
+
+    if (cart.length === 0) {
+
+        showToast("Your project cart is empty.");
+
+        return;
+
+    }
+
+
+    let message =
+        "Hello ARVEX APPAREL,%0A%0A" +
+        "I would like to order:%0A";
+
+
+    let total = 0;
+
+
+    cart.forEach(function(item) {
+
+        message +=
+            "- " +
+            item.name +
+            " — $" +
+            item.price.toFixed(2) +
+            "%0A";
+
+        total += item.price;
+
+    });
+
+
+    message +=
+        "%0ATotal: $" +
+        total.toFixed(2);
+
+
+    window.open(
+        "https://wa.me/923256145964?text=" +
+        message,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   NEWSLETTER
+===================================================== */
+
+document
+    .getElementById("newsletterForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById("email").value;
+
+
+        if (!email) {
+
+            return;
+
+        }
+
+
+        showToast(
+            "Thanks for joining ARVEX APPAREL."
+        );
+
+
+        this.reset();
+
+    });
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer;
+
+
+function showToast(message) {
+
+    const toast =
+        document.getElementById("toast");
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+        setTimeout(function() {
+
+            toast.classList.remove("show");
+
+        }, 2500);
+
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const observer =
+    new IntersectionObserver(
+        function(entries) {
+
+            entries.forEach(function(entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target
+                        .classList
+                        .add("visible");
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .12
+        }
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(function(element) {
+
+        observer.observe(element);
+
+    });
+
+
+/* =====================================================
+   ESCAPE KEY
+===================================================== */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closeCart();
+
+        navLinks.classList.remove("active");
+
+    }
+
+});
+
+
+/* =====================================================
+   INITIAL CART
+===================================================== */
+
+updateCart();
+
+</script>
+
+</body>
+</html>
